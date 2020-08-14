@@ -31,9 +31,7 @@ router.post('/', async (req, res) => {
     if ((req.body.username).length < 6) return res.status(400).json({ msg: 'Username must have at least 6 characters' })
     if ((req.body.password).length < 6) return res.status(400).json({ msg: 'Password must have at least 6 characters' })
 
-    if (!validEmail) return res.status(400).json({
-        msg: 'Invalid email'
-    })
+    if (!validEmail) return res.status(400).json({ msg: 'Invalid email' })
     const chatters = new Chatters({
         name: req.body.username,
         email: req.body.email,
@@ -49,13 +47,11 @@ router.post('/', async (req, res) => {
 
     transporter.sendMail(options, (err, info) => {
         if (err) {
-            res.status(400).json({
-                msg: err.message
-            })
+            res.status(400).json({ msg: err.message })
+            return
         } else {
-            res.json({
-                msg: info.response
-            })
+            res.json({ msg: info.response })
+            return
         }
     })
 
@@ -64,11 +60,13 @@ router.post('/', async (req, res) => {
             res.status(201).json({
                 msg: 'Updated'
             })
+            return
         })
         .catch((err) => {
             res.status(403).json({
                 msg: err.message
             })
+            return
         })
 })
 

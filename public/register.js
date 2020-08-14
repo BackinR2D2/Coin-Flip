@@ -24,7 +24,8 @@ registerBtn.addEventListener('click', (e) => {
         .then((resp) => resp.json())
         .then((result) => {
             if (result.msg === 'Updated') {
-                return window.location.href = '/login'
+                window.location.href = '/login'
+                return
             } else {
                 displayMsg(result.msg)
             }

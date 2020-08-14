@@ -21,10 +21,12 @@ router.post('/', async (req, res) => {
                 msg: 'OK'
             })
         }
+        return
     } catch (error) {
         res.status(400).json({
             msg: error.message
         })
+        return
     }
 })
 

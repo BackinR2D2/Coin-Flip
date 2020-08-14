@@ -25,6 +25,7 @@ submitBtn.addEventListener('click', (e) => {
         .then((result) => {
             if (result.msg === 'OK') {
                 window.location.href = '/home'
+                return
             } else {
                 displayMsg(result.msg)
             }
