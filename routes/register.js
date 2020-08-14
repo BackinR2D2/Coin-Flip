@@ -28,7 +28,7 @@ router.post('/', async (req, res) => {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     let validEmail = re.test(String(req.body.email).toLowerCase());
 
-    if ((req.body.username).length < 6) return res.status(400).json({ msg: 'Username must have at least 6 characters' })
+    if ((req.body.username).length === 0) return res.status(400).json({ msg: 'Username can not be empty' })
     if ((req.body.password).length < 6) return res.status(400).json({ msg: 'Password must have at least 6 characters' })
 
     if (!validEmail) return res.status(400).json({ msg: 'Invalid email' })
