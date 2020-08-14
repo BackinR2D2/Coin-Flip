@@ -6,8 +6,8 @@ const nodemailer = require('nodemailer')
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: process.env.USER_MAIL,
-        pass: process.env.USER_PASS
+        user: process.env.USERMAIL,
+        pass: process.env.USERPASS
     }
 })
 
@@ -41,7 +41,7 @@ router.post('/', async (req, res) => {
     })
 
     const options = {
-        from: process.env.USER_MAIL,
+        from: process.env.USERMAIL,
         to: req.body.email,
         subject: 'Howdy!!',
         html: '<b>Hello and have a great time on the website!</b>'

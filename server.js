@@ -13,7 +13,7 @@ const cookieParser = require('cookie-parser')
 app.use(express.static(path.join(__dirname, '/public')))
 app.use(cookieParser())
 
-mongoose.connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
+mongoose.connect(process.env.DBURI, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
     .then((result) => {
         app.listen(port, () => {
             console.log(`listening on port ${port}`)

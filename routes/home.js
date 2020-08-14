@@ -17,14 +17,14 @@ router.post('/contact', verify, async (req, res) => {
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: process.env.USER_MAIL,
-            pass: process.env.USER_PASS
+            user: process.env.USERMAIL,
+            pass: process.env.USERPASS
         }
     })
 
     const info = {
         from: userEmail,
-        to: process.env.USER_MAIL,
+        to: process.env.USERMAIL,
         subject: req.body.title,
         text: `${req.body.message}. Text sent by: ${userEmail}`
     }
