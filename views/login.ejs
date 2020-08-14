@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <link rel="shortcut icon" type="image/x-icon"
+        href="https://www.iconpacks.net/icons/1/free-coin-icon-794-thumb.png" />
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js"></script>
+    <title>Login</title>
+</head>
+
+<body>
+    <%- include('./partials/navbar') %>
+    <div class="header">
+        <h1>Login</h1>
+    </div>
+    <form>
+        <div class="titleInp m12">
+            <input class="input is-rounded" type="text" placeholder="Username" name="username">
+        </div>
+        <div class="titleInp m12">
+            <input class="input is-rounded" type="text" placeholder="Email" name="email">
+        </div>
+
+        <div class="input-container ">
+            <input class="input is-rounded" type="password" name="password" placeholder="Password" required />
+            <ion-icon class="material-icons visibility" name="eye-outline"></ion-icon>
+        </div>
+        <button type="submit" class="button is-black register">Submit</button>
+
+        <p class="m12">If you do not have an account, go <a href="/register">here</a></p>
+        <p class="situation"></p>
+    </form>
+    <script src="hidePass.js"></script>
+    <script src="login.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Leaderboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <link rel="shortcut icon" type="image/x-icon"
+        href="https://www.iconpacks.net/icons/1/free-coin-icon-794-thumb.png" />
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <%- include('./partials/navbar') %>
+    <div class="header">
+        <h1>Leaderboard</h1>
+    </div>
+    <table class="mt12"></table>
+    <script>
+        const table = document.querySelector('table')
+        let count = 1;
+        '<% users.map(user => { %>'
+        var tr = document.createElement('tr')
+        var tdName = document.createElement('td')
+        var tdScore = document.createElement('td')
+        var tdCount = document.createElement('td')
+        tdName.innerText = '<%= user.name %>'
+        tdScore.innerText = '<%= user.score %>'
+        tdCount.innerText = count
+        tr.appendChild(tdCount)
+        tr.appendChild(tdName)
+        tr.appendChild(tdScore)
+        table.appendChild(tr)
+        count++
+        '<% }) %>'
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <link rel="shortcut icon" type="image/x-icon"
+        href="https://www.iconpacks.net/icons/1/free-coin-icon-794-thumb.png" />
+    <link rel="stylesheet" href="style.css">
+    <title>About</title>
+
+</head>
+
+<body>
+    <%- include('./partials/navbar') %>
+    <div class="header">
+        <h1>Contact me!</h1>
+    </div>
+    <form action="/contact" method="POST">
+        <div class="titleInp m12">
+            <input class="input is-rounded" type="text" placeholder="Enter a title" name="title">
+        </div>
+        <div class="control m12">
+            <textarea class="textarea" placeholder="Enter a message" required name="message"></textarea>
+        </div>
+        <div class="mailSendBtn m12">
+            <button type="submit" class="button is-black">Send email!</button>
+        </div>
+        <p class="msg m12"></p>
+    </form>
+    <script src="contact.js"></script>
+</body>
+
+</html>

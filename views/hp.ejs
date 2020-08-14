@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <link rel="shortcut icon" type="image/x-icon"
+        href="https://www.iconpacks.net/icons/1/free-coin-icon-794-thumb.png" />
+    <link rel="stylesheet" href="homepage.css">
+</head>
+
+<body>
+    <%- include('./partials/navbar') %>
+
+    <section class="hero is-medium is-primary is-bold">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    To flip or not to flip?
+                </h1>
+                <h2 class="subtitle">
+                    Flipping a coin takes some real skill
+                </h2>
+            </div>
+        </div>
+    </section>
+    <div class="cards">
+        <div class="card">
+            <div class="card-content">
+                <h2>
+                    If you want to randomly flip a coin, this is the game for you!
+                </h2>
+            </div>
+            <footer class="card-footer">
+                <p class="card-footer-item">
+                    <span>
+                        <a href="/coin-flip" class="ft2em">Play</a>
+                    </span>
+                </p>
+            </footer>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <h2>
+                    If you want to guess a randomly flipped coin, then this is the game for you!
+                </h2>
+            </div>
+            <footer class="card-footer">
+                <p class="card-footer-item">
+                    <span>
+                        <a href="/guess-coin" class="ft2em">
+                            Play
+                        </a>
+                    </span>
+                </p>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>

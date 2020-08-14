@@ -1,0 +1,52 @@
+nav {
+    width: auto;
+}
+
+html {
+    background-image: linear-gradient(141deg,#009e6c 0,#00d1b2 71%,#00e7eb 100%);
+}
+
+body {
+    
+    overflow-y: scroll; 
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.navbar-item .title {
+    font-size: 1.6em;
+}
+
+.mbot {
+    margin-bottom: 0 !important;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.card {
+    border-radius: 10px;
+    margin-right: 2em;
+    margin-left: 2em;
+    margin-bottom: 2.4em;
+}
+
+@media (max-width: 768px) {
+    .cards {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.ft2em {
+    font-size: 2em;
+}
+
+a {
+    color: #000;
+}
