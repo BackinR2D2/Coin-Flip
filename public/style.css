@@ -261,11 +261,11 @@ table td {
     border: 1px solid transparent;
   }
 
-  @media (max-width: 301px) {
-      .input-container {
-          width: 280px;
-      }
-  }
+  @media (max-width: 420px) {
+    .input, .input-container {
+        width: 280px;
+    }
+}
 
   ion-icon{
       padding: 8px;
