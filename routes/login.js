@@ -9,10 +9,10 @@ router.get('/', (req, res) => {
 
 router.post('/', async (req, res) => {
     try {
-        const user = await Chatters.findOne({ email: req.body.email, name: req.body.username })
-        if (!user) return res.status(400).json({ msg: 'Email or username not correct' })
+        const user = await Chatters.findOne({ name: req.body.username })
+        if (!user) return res.status(400).json({ msg: 'Username or password not correct' })
         const confirmPass = await bcrypt.compare(req.body.password, user.password)
-        if (!confirmPass) return res.status(400).json({ msg: 'Password not correct' })
+        if (!confirmPass) return res.status(400).json({ msg: 'Username or password not correct' })
         if (user !== null && confirmPass) {
             const token = jwt.sign({ _id: user._id, name: user.name, email: user.email }, process.env.SECRET, { expiresIn: '1d' })
             res.cookie('token', token, {

@@ -1,14 +1,12 @@
 const submitBtn = document.querySelector('button[type=submit]')
 const username = document.querySelector('input')
-const email = document.querySelectorAll('input')[1]
-const password = document.querySelectorAll('input')[2]
+const password = document.querySelectorAll('input')[1]
 const situation = document.querySelector('.situation')
 submitBtn.addEventListener('click', (e) => {
     e.preventDefault()
     const user = {
         username: username.value,
-        email: email.value,
-        password: password.value,
+        password: password.value
     }
     fetch('/login', {
         method: 'POST',
@@ -17,7 +15,6 @@ submitBtn.addEventListener('click', (e) => {
         },
         body: JSON.stringify({
             username: user.username,
-            email: user.email,
             password: user.password
         })
     })

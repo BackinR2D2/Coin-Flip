@@ -17,7 +17,8 @@
     <div class="header">
         <h1>Leaderboard</h1>
     </div>
-    <table class="mt12"></table>
+    <table class="mt4vh"></table>
+    <script src="buttonHide.js"></script>
     <script>
         const table = document.querySelector('table')
         let count = 1;
@@ -29,6 +30,21 @@
         tdName.innerText = '<%= user.name %>'
         tdScore.innerText = '<%= user.score %>'
         tdCount.innerText = count
+        if (count === 1) {
+            tdCount.innerHTML = '<img src="award.png" alt="first_place" class="leaderboard"></img>'
+            tdName.style.backgroundColor = 'rgb(255, 222, 83)'
+            tdScore.style.backgroundColor = 'rgb(255, 222, 83)'
+        }
+        if (count === 2) {
+            tdCount.innerHTML = '<img src="second.png" alt="second_place" class="leaderboard"></img>'
+            tdName.style.backgroundColor = 'rgb(217, 218, 200)'
+            tdScore.style.backgroundColor = 'rgb(217, 218, 200)'
+        }
+        if (count === 3) {
+            tdCount.innerHTML = '<img src="third.png" alt="third_place" class="leaderboard"></img>'
+            tdName.style.backgroundColor = 'rgb(243, 172, 108)'
+            tdScore.style.backgroundColor = 'rgb(243, 172, 108)'
+        }
         tr.appendChild(tdCount)
         tr.appendChild(tdName)
         tr.appendChild(tdScore)

@@ -1,5 +1,5 @@
 const hideIcon = document.querySelector('ion-icon')
-const passInp = document.querySelectorAll('input')[2]
+const passInp = document.querySelectorAll('input[name=password]')[0]
 hideIcon.addEventListener('click', () => {
     if (passInp.getAttribute('type') === 'password') {
         passInp.setAttribute('type', 'text')
