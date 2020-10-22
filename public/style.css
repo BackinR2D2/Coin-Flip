@@ -90,18 +90,11 @@ td {
 .flip .card .front {
     position: absolute;
     z-index: 1;
-    background: black;
-    color: red;
-    cursor: pointer;
 }
 
 .flip .card .back {
     transform: rotateX(180deg);
     -webkit-transform: rotatex(180deg);
-    background: blue;
-    background: white;
-    color: black;
-    cursor: pointer;
 }
 
 img {

@@ -12,8 +12,10 @@ btn.addEventListener('click', () => {
     let value = options[index]
     if (value === 'tails') {
         card.classList.toggle('flipped')
-        front.setAttribute('src', 'coin_tails.png')
-        back.setAttribute('src', 'coin_heads.png')
+        setTimeout(() => {
+            front.setAttribute('src', 'coin_tails.png')
+            back.setAttribute('src', 'coin_heads.png')
+        }, 400);
         setTimeout(() => {
             btn.style.pointerEvents = 'auto'
             tailScore += 1
@@ -22,8 +24,10 @@ btn.addEventListener('click', () => {
         btn.style.pointerEvents = 'none'
     } else if (value === 'heads') {
         card.classList.toggle('flipped')
-        front.setAttribute('src', 'coin_heads.png')
-        back.setAttribute('src', 'coin_tails.png')
+        setTimeout(() => {
+            front.setAttribute('src', 'coin_heads.png')
+            back.setAttribute('src', 'coin_tails.png')
+        }, 400);
         setTimeout(() => {
             btn.style.pointerEvents = 'auto'
             headScore += 1

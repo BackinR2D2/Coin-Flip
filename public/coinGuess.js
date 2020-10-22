@@ -19,8 +19,10 @@ gameBtns.forEach((gameBtn) => {
         let playerChoice = this.innerText.toLowerCase()
         if (value === 'heads') {
             card.classList.toggle('flipped')
-            front.setAttribute('src', 'coin_heads.png')
-            back.setAttribute('src', 'coin_tails.png')
+            setTimeout(() => {
+                front.setAttribute('src', 'coin_heads.png')
+                back.setAttribute('src', 'coin_tails.png')
+            }, 400);
             setTimeout(() => {
                 headBtn.style.pointerEvents = 'auto'
                 tailBtn.style.pointerEvents = 'auto'
@@ -29,8 +31,10 @@ gameBtns.forEach((gameBtn) => {
             tailBtn.style.pointerEvents = 'none'
         } else {
             card.classList.toggle('flipped')
-            front.setAttribute('src', 'coin_tails.png')
-            back.setAttribute('src', 'coin_heads.png')
+            setTimeout(() => {
+                front.setAttribute('src', 'coin_tails.png')
+                back.setAttribute('src', 'coin_heads.png')
+            }, 400);
             setTimeout(() => {
                 tailBtn.style.pointerEvents = 'auto'
                 headBtn.style.pointerEvents = 'auto'
