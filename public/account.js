@@ -5,7 +5,6 @@ const cancel = document.querySelector('.cancel')
 const changeBtn = document.querySelector('.changeBtn')
 const usernameInp = document.querySelector('input')
 const name = document.querySelector('.username')
-const situation = document.querySelector('.situation')
 const deleteBtn = document.querySelector('.deleteBtn')
 
 btn.addEventListener('click', () => {
@@ -35,19 +34,16 @@ changeBtn.addEventListener('click', (e) => {
             .then((resp) => resp.json())
             .then((result) => {
                 if (result.message) {
-                    situation.style.display = 'block'
-                    situation.textContent = result.message
-                    setTimeout(() => {
-                        situation.style.display = 'none'
-                    }, 3000)
+                    swal("Oops!", "Username is taken.", "error");
                 } else {
-                    situation.style.display = 'block'
-                    name.textContent = result
-                    situation.textContent = 'Updated!'
-                    setTimeout(() => {
-                        situation.style.display = 'none'
-                    }, 3000)
+                    name.textContent = result;
+                    usernameInp.value = '';
+                    account.style.display = 'block';
+                    changeSection.style.display = 'none';
                 }
+            })
+            .catch(_ => {
+                swal("Oops!", "Something went wrong, Try again please.", "error");
             })
     }
 })
@@ -68,8 +64,13 @@ deleteBtn.addEventListener('click', async (e) => {
                     const deleteAcc = await fetch('/account', {
                         method: 'DELETE',
                     })
+                    if (deleteAcc.status === 200) {
+                        window.location.href = '/register'
+                    } else {
+                        swal("Oops!", "Something went wrong! Try again please", "error");
+                    }
                 } catch (error) {
-                    window.location.href = '/register'
+                    swal("Oops!", "Something went wrong! Try again please", "error");
                 }
             }
         });

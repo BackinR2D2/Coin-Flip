@@ -11,6 +11,6 @@ logout.addEventListener('click', (e) => {
             }
         })
         .catch((err) => {
-            window.location.href = '/home'
+            swal("Oops!", "Something went wrong! Try again please", "error");
         })
 })

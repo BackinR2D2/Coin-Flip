@@ -12,11 +12,10 @@ router.get('/contact', verify, (req, res) => {
 router.post('/contact', verify, async (req, res) => {
     const userEmail = jwt.verify(req.cookies.token, process.env.SECRET).email
     const transporter = nodemailer.createTransport({
-        host: "smtp.ethereal.email",
         service: 'gmail',
         auth: {
             user: process.env.USERMAIL,
-            pass: process.env.USERPASS
+            pass: process.env.USERPASS,
         }
     })
 
@@ -29,7 +28,7 @@ router.post('/contact', verify, async (req, res) => {
 
     transporter.sendMail(info, (err, status) => {
         if (err) {
-            res.json(err.message)
+            res.status(500).json(err.message)
         } else {
             res.json(status.response)
         }
@@ -90,7 +89,7 @@ router.patch('/account', verify, async (req, res) => {
         const updatedUsername = await Chatter.findByIdAndUpdate({ _id: id }, {
             name: username
         })
-        res.json(username)
+        res.status(201).json(username)
     } catch (error) {
         res.status(500).render('error')
     }
@@ -100,8 +99,9 @@ router.delete('/account', verify, async (req, res) => {
     try {
         const token = jwt.verify(req.cookies.token, process.env.SECRET)
         const chatter = await Chatter.findOneAndDelete({ _id: token._id })
-        res.clearCookie('token')
-        res.status(200).redirect('/register')
+        res.clearCookie('token').status(200).json({
+            status: 'OK',
+        })
     } catch (error) {
         res.status(400).render('error')
     }

@@ -27,23 +27,15 @@ btn.addEventListener('click', (e) => {
             .then((result) => {
                 document.querySelector('input').value = ''
                 document.querySelector('textarea').value = ''
-                if (result.includes('OK') === false) {
-                    msg.textContent = 'Invalid password for your email!'
-                    setTimeout(() => {
-                        msg.textContent = ''
-                    }, 2000)
+                if (result.includes('OK') === true) {
+                    swal("Thanks for the feedback!", "Email has been sent!", "success");
                 } else {
-                    msg.textContent = 'Email sent!'
-                    setTimeout(() => {
-                        msg.textContent = ''
-                    }, 2000)
+                    swal("Oops!", "Something went wrong! Try again please", "error");
                 }
             })
             .catch((err) => {
-                msg.textContent = 'Error, I am sorry!'
-                setTimeout(() => {
-                    msg.textContent = ''
-                }, 2000)
+                swal("Oops!", "Something went wrong, Try again please.", "error");
+
             })
     }
 

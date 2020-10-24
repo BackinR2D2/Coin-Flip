@@ -15,7 +15,7 @@
 <body>
     <%- include('./partials/navbar') %>
     <div class="header">
-        <h1>Contact me!</h1>
+        <h1>Contact me</h1>
     </div>
     <form action="/contact" method="POST">
         <div class="titleInp m12">
@@ -25,10 +25,11 @@
             <textarea class="textarea" placeholder="Enter a message" required name="message"></textarea>
         </div>
         <div class="mailSendBtn m12">
-            <button type="submit" class="button is-black">Send email!</button>
+            <button type="submit" class="button is-black">Send email</button>
         </div>
         <p class="msg m12"></p>
     </form>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="buttonHide.js"></script>
     <script src="contact.js"></script>
 </body>

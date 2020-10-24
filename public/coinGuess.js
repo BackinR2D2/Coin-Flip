@@ -70,8 +70,8 @@ function updateScore() {
         .then((result) => {
             scoreElement.textContent = result
         })
-        .catch((err) => {
-            console.log(err)
+        .catch((_) => {
+            swal("Oops!", "Something went wrong, Try again please.", "error");
         })
 }
 

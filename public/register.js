@@ -2,7 +2,6 @@ const registerBtn = document.querySelector('button[type=submit]')
 const username = document.querySelector('input')
 const email = document.querySelectorAll('input')[1]
 const password = document.querySelectorAll('input')[2]
-const situation = document.querySelector('.situation')
 registerBtn.addEventListener('click', (e) => {
     e.preventDefault()
     const user = {
@@ -27,17 +26,10 @@ registerBtn.addEventListener('click', (e) => {
                 window.location.href = '/login'
                 return
             } else {
-                displayMsg(result.msg)
+                swal("Oops!", `${result.msg}`, "error");
             }
         })
         .catch((err) => {
-            displayMsg('Some error occured! We\'re sorry. Try again')
+            swal("Oops!", "Something went wrong, Try again please.", "error");
         })
 })
-
-function displayMsg(msg) {
-    situation.textContent = msg
-    return setTimeout(() => {
-        situation.textContent = ''
-    }, 2000)
-}

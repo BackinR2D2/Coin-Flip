@@ -1,7 +1,6 @@
 const submitBtn = document.querySelector('button[type=submit]')
 const username = document.querySelector('input')
 const password = document.querySelectorAll('input')[1]
-const situation = document.querySelector('.situation')
 submitBtn.addEventListener('click', (e) => {
     e.preventDefault()
     const user = {
@@ -24,17 +23,10 @@ submitBtn.addEventListener('click', (e) => {
                 window.location.href = '/home'
                 return
             } else {
-                displayMsg(result.msg)
+                swal("Oops!", `${result.msg}`, "error");
             }
         })
         .catch((err) => {
-            displayMsg('Some error occured! We\'re sorry, try again later.')
+            swal("Oops!", "Something went wrong, Try again please.", "error");
         })
 })
-
-function displayMsg(msg) {
-    situation.textContent = msg
-    return setTimeout(() => {
-        situation.textContent = ''
-    }, 2000)
-}
