@@ -21,10 +21,12 @@ router.post('/contact', verify, async (req, res) => {
         }
 
         const mail = await sgMail.send(msg);
+        console.log(mail);
         res.json({
             status: 'OK'
         })
     } catch (err) {
+        console.log(err);
         res.status(500).json(err.message)
     }
 })

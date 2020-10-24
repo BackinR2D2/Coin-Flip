@@ -25,6 +25,7 @@ btn.addEventListener('click', (e) => {
         })
             .then((res) => res.json())
             .then((result) => {
+                console.log(result);
                 document.querySelector('input').value = ''
                 document.querySelector('textarea').value = ''
                 if (result.status === 'OK') {
@@ -34,6 +35,7 @@ btn.addEventListener('click', (e) => {
                 }
             })
             .catch((err) => {
+                console.log(err);
                 swal("Oops!", "Something went wrong, Try again please.", "error");
             })
     }
