@@ -13,6 +13,9 @@ router.post('/contact', verify, async (req, res) => {
     const userEmail = jwt.verify(req.cookies.token, process.env.SECRET).email
     const transporter = nodemailer.createTransport({
         service: 'gmail',
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure: true,
         auth: {
             user: process.env.USERMAIL,
             pass: process.env.USERPASS,
