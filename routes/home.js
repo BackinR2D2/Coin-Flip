@@ -11,7 +11,7 @@ router.get('/contact', verify, (req, res) => {
 
 router.post('/contact', verify, async (req, res) => {
     try {
-        sgMail.setApiKey(process.env.TEST)
+        sgMail.setApiKey(process.env.KEY)
         const userEmail = jwt.verify(req.cookies.token, process.env.SECRET).email
         const msg = {
             to: process.env.USERMAIL,
