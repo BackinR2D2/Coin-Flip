@@ -12,7 +12,9 @@ router.get('/contact', verify, (req, res) => {
 router.post('/contact', verify, async (req, res) => {
     const userEmail = jwt.verify(req.cookies.token, process.env.SECRET).email
     const transporter = nodemailer.createTransport({
-        service: 'gmail',
+        service: 'Gmail',
+        port: 465,
+        secure: true,
         auth: {
             user: process.env.USERMAIL,
             pass: process.env.USERPASS,
@@ -20,7 +22,7 @@ router.post('/contact', verify, async (req, res) => {
     })
 
     const info = {
-        from: process.env.USERMAIL,
+        from: userEmail,
         to: process.env.USERMAIL,
         subject: req.body.title,
         text: `${req.body.message}. Text sent by: ${userEmail}`
