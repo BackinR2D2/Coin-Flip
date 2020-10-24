@@ -28,9 +28,10 @@ router.post('/contact', verify, async (req, res) => {
     } catch (err) {
         console.log(err);
         // res.status(500).json(err.message)
-        res.status(500).json({
-            error: error
-        });
+        res.json({
+            status: err.response.status,
+            msg: err.message
+        })
     }
 })
 
