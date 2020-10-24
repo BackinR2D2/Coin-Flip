@@ -20,7 +20,7 @@ router.post('/contact', verify, async (req, res) => {
     })
 
     const info = {
-        from: userEmail,
+        from: process.env.USERMAIL,
         to: process.env.USERMAIL,
         subject: req.body.title,
         text: `${req.body.message}. Text sent by: ${userEmail}`
