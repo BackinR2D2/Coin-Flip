@@ -4,7 +4,6 @@ const Chatter = require('../models/chatters')
 const jwt = require('jsonwebtoken')
 const moment = require('moment')
 const sgMail = require('@sendgrid/mail')
-sgMail.setApiKey(process.env.KEY)
 
 router.get('/contact', verify, (req, res) => {
     res.render('contact')
@@ -12,6 +11,7 @@ router.get('/contact', verify, (req, res) => {
 
 router.post('/contact', verify, async (req, res) => {
     try {
+        sgMail.setApiKey(process.env.TEST)
         const userEmail = jwt.verify(req.cookies.token, process.env.SECRET).email
         const msg = {
             to: process.env.USERMAIL,
