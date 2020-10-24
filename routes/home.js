@@ -3,38 +3,30 @@ const verify = require('./checkAuth')
 const Chatter = require('../models/chatters')
 const jwt = require('jsonwebtoken')
 const moment = require('moment')
-const nodemailer = require('nodemailer')
+const sgMail = require('@sendgrid/mail')
+sgMail.setApiKey(process.env.KEY)
 
 router.get('/contact', verify, (req, res) => {
     res.render('contact')
 })
 
 router.post('/contact', verify, async (req, res) => {
-    const userEmail = jwt.verify(req.cookies.token, process.env.SECRET).email
-    const transporter = nodemailer.createTransport({
-        service: 'Gmail',
-        host: 'smtp.gmail.com',
-        secure: true,
-        auth: {
-            user: process.env.USERMAIL,
-            pass: process.env.USERPASS,
+    try {
+        const userEmail = jwt.verify(req.cookies.token, process.env.SECRET).email
+        const msg = {
+            to: process.env.USERMAIL,
+            from: process.env.USERMAIL,
+            subject: req.body.title,
+            text: `${req.body.message}. Text sent by: ${userEmail}`,
         }
-    })
 
-    const info = {
-        from: userEmail,
-        to: process.env.USERMAIL,
-        subject: req.body.title,
-        text: `${req.body.message}. Text sent by: ${userEmail}`
+        const mail = await sgMail.send(msg);
+        res.json({
+            status: 'OK'
+        })
+    } catch (err) {
+        res.status(500).json(err.message)
     }
-
-    transporter.sendMail(info, (err, status) => {
-        if (err) {
-            res.status(500).json(err.message)
-        } else {
-            res.json(status.response)
-        }
-    })
 })
 
 router.get('/home', verify, (req, res) => {

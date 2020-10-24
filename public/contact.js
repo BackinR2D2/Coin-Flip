@@ -25,17 +25,15 @@ btn.addEventListener('click', (e) => {
         })
             .then((res) => res.json())
             .then((result) => {
-                console.log(result);
                 document.querySelector('input').value = ''
                 document.querySelector('textarea').value = ''
-                if (result.includes('OK') === true) {
+                if (result.status === 'OK') {
                     swal("Thanks for the feedback!", "Email has been sent!", "success");
                 } else {
                     swal("Oops!", "Something went wrong! Try again please", "error");
                 }
             })
             .catch((err) => {
-                console.log(err);
                 swal("Oops!", "Something went wrong, Try again please.", "error");
             })
     }
