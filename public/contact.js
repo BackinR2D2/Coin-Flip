@@ -35,7 +35,6 @@ btn.addEventListener('click', (e) => {
             })
             .catch((err) => {
                 swal("Oops!", "Something went wrong, Try again please.", "error");
-
             })
     }
 

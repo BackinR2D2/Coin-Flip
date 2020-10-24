@@ -36,7 +36,6 @@ router.post('/', async (req, res) => {
         })
         return
     } catch (error) {
-        console.log(error);
         res.status(500).json({
             msg: 'Some error occured... Try again'
         })
