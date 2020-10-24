@@ -53,14 +53,25 @@ changeBtn.addEventListener('click', (e) => {
 })
 
 deleteBtn.addEventListener('click', async (e) => {
-    try {
-        e.preventDefault()
-        localStorage.setItem('score', 0)
-        const deleteAcc = await fetch('/account', {
-            method: 'DELETE',
-        })
-    } catch (error) {
-        window.location.href = '/register'
-    }
+    swal({
+        title: "Are you sure?",
+        text: "Confirming further will permanently delete your account.",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    })
+        .then(async (willDelete) => {
+            if (willDelete) {
+                try {
+                    e.preventDefault()
+                    localStorage.setItem('score', 0)
+                    const deleteAcc = await fetch('/account', {
+                        method: 'DELETE',
+                    })
+                } catch (error) {
+                    window.location.href = '/register'
+                }
+            }
+        });
 
 })

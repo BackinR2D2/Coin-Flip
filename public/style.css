@@ -278,3 +278,8 @@ table td {
       width: initial;
       margin-top: 6px;
   }
+
+  .navbar-burger {
+      height: auto;
+      width: 4em;
+  }

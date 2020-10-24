@@ -3,7 +3,6 @@ const verify = require('./checkAuth')
 const Chatter = require('../models/chatters')
 const jwt = require('jsonwebtoken')
 const moment = require('moment')
-
 const nodemailer = require('nodemailer')
 
 router.get('/contact', verify, (req, res) => {
@@ -11,10 +10,9 @@ router.get('/contact', verify, (req, res) => {
 })
 
 router.post('/contact', verify, async (req, res) => {
-    let account = await nodemailer.createTestAccount()
-
     const userEmail = jwt.verify(req.cookies.token, process.env.SECRET).email
     const transporter = nodemailer.createTransport({
+        host: "smtp.ethereal.email",
         service: 'gmail',
         auth: {
             user: process.env.USERMAIL,
