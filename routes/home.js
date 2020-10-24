@@ -20,18 +20,22 @@ router.post('/contact', verify, async (req, res) => {
             html: `${req.body.message}. Text sent by: ${userEmail}`,
         }
 
-        const mail = await sgMail.send(msg);
-        console.log(mail);
-        res.json({
-            status: 'OK'
-        })
+        sgMail.send(msg)
+            .then((data) => {
+                res.json({
+                    status: 'OK',
+                })
+                return
+            })
+            .catch((err) => {
+                res.status(500).json({
+                    msg: err.message,
+                })
+                return
+            })
     } catch (err) {
         console.log(err);
-        // res.status(500).json(err.message)
-        res.json({
-            status: err.status,
-            msg: err.message
-        })
+        res.status(500).json(err.message)
     }
 })
 
