@@ -9,7 +9,7 @@ const registerRoute = require('./routes/register')
 const hp = require('./routes/home')
 const helmet = require('helmet')
 const cookieParser = require('cookie-parser')
-
+app.use(require('cors')())
 app.use(express.static(path.join(__dirname, '/public')))
 app.use(cookieParser())
 

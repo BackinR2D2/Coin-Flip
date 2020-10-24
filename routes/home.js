@@ -17,7 +17,7 @@ router.post('/contact', verify, async (req, res) => {
             to: process.env.USERMAIL,
             from: process.env.USERMAIL,
             subject: req.body.title,
-            text: `${req.body.message}. Text sent by: ${userEmail}`,
+            html: `${req.body.message}. Text sent by: ${userEmail}`,
         }
 
         const mail = await sgMail.send(msg);
