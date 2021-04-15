@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Profile</title>
+    <title>Account</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
     <link rel="shortcut icon" type="image/x-icon"
         href="https://www.iconpacks.net/icons/1/free-coin-icon-794-thumb.png" />
@@ -14,32 +14,40 @@
 
 <body>
     <%- include('./partials/navbar') %>
-    <div class="header">
-        <h1>My account</h1>
-    </div>
-    <div class="account">
-
-        <p class="m12">Username: <span class="username"><%= getData.name %> </span></p>
-        <button type="button" class="button is-black">Change username</button>
-        <p class="m12">Email: <span><%= getData.email %></span></p>
-        <p class="m12">Score: <span><%= getData.score %></span></p>
-        <p class="m12">Created at: <span><%= date %></span></p>
-        <button type="button" class="deleteBtn button is-danger">Delete account!</button>
-
-    </div>
-    <div class="change">
-        <div>
-            <input type="text" class="input is-rounded mt12 mb1" placeholder="Enter a new username" name="username"
-                required>
+        <div class="header">
+            <h1>My account</h1>
         </div>
-        <div>
-            <button type="button" class="changeBtn button is-black">Change</button>
-            <button type="button" class="cancel button is-black">Cancel</button>
+        <div class="account">
+
+            <p class="m12">Username: <span class="username">
+                    <%= getData.name %>
+                </span></p>
+            <button type="button" class="button is-black">Change username</button>
+            <p class="m12">Email: <span>
+                    <%= getData.email %>
+                </span></p>
+            <p class="m12">Score: <span>
+                    <%= getData.score %>
+                </span></p>
+            <p class="m12">Created at: <span>
+                    <%= date %>
+                </span></p>
+            <button type="button" class="deleteBtn button is-danger">Delete account!</button>
+
         </div>
-    </div>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="buttonHide.js"></script>
-    <script src="account.js"></script>
+        <div class="change">
+            <div>
+                <input type="text" class="input is-rounded mt12 mb1" placeholder="Enter a new username" name="username"
+                    required>
+            </div>
+            <div>
+                <button type="button" class="changeBtn button is-black">Change</button>
+                <button type="button" class="cancel button is-black">Cancel</button>
+            </div>
+        </div>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="buttonHide.js"></script>
+        <script src="account.js"></script>
 </body>
 
 </html>

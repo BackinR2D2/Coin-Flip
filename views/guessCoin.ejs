@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Guess the flipped coin!</title>
+    <title>Guess the flipped coin</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
     <link rel="shortcut icon" type="image/x-icon"
         href="https://www.iconpacks.net/icons/1/free-coin-icon-794-thumb.png" />
@@ -13,25 +13,27 @@
 
 <body>
     <%- include('./partials/navbar') %>
-    <div class="flip">
-        <div class="card">
-            <div class="face front">
-                <img src="coin_heads.png" alt="coinHead" id="heads">
-            </div>
-            <div class="face back">
-                <img src="coin_tails.png" alt="coinTail" id="tails">
+        <div class="flip">
+            <div class="card">
+                <div class="face front">
+                    <img src="coin_heads.png" alt="coinHead" id="heads">
+                </div>
+                <div class="face back">
+                    <img src="coin_tails.png" alt="coinTail" id="tails">
+                </div>
             </div>
         </div>
-    </div>
-    <div class="options">
-        <button type="button" class="gameBtn headBtn button is-black">Heads</button>
-        <button type="button" class="gameBtn tailBtn button is-black">Tails</button>
-    </div>
-    <div class="score">
-        <p class="points">Score: <span id="score"><%= score %></span></p>
-    </div>
-    <script src="buttonHide.js"></script>
-    <script src="coinGuess.js"></script>
+        <div class="options">
+            <button type="button" class="gameBtn headBtn button is-black">Heads</button>
+            <button type="button" class="gameBtn tailBtn button is-black">Tails</button>
+        </div>
+        <div class="score">
+            <p class="points">Score: <span id="score">
+                    <%= score %>
+                </span></p>
+        </div>
+        <script src="buttonHide.js"></script>
+        <script src="coinGuess.js"></script>
 </body>
 
 </html>

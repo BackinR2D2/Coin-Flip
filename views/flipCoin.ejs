@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Coin Flip!</title>
+    <title>Flip the coin</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
     <link rel="shortcut icon" type="image/x-icon"
         href="https://www.iconpacks.net/icons/1/free-coin-icon-794-thumb.png" />
@@ -14,24 +14,24 @@
 <body>
     <%- include('./partials/navbar') %>
 
-    <div class="flip">
-        <div class="card">
-            <div class="face front">
-                <img src="coin_heads.png" alt="coinHead" id="heads">
-            </div>
-            <div class="face back">
-                <img src="coin_tails.png" alt="coinTail" id="tails">
+        <div class="flip">
+            <div class="card">
+                <div class="face front">
+                    <img src="coin_heads.png" alt="coinHead" id="heads">
+                </div>
+                <div class="face back">
+                    <img src="coin_tails.png" alt="coinTail" id="tails">
+                </div>
             </div>
         </div>
-    </div>
 
-    <button id="flip" class="button is-black">Flip</button>
-    <div class="score">
-        <p class="points">Heads: <span class="heads">0</span></p>
-        <p class="points">Tails: <span class="tails">0</span></p>
-    </div>
-    <script src="buttonHide.js"></script>
-    <script src="coinFlip.js"></script>
+        <button id="flip" class="button is-black">Flip</button>
+        <div class="score">
+            <p class="points">Heads: <span class="heads">0</span></p>
+            <p class="points">Tails: <span class="tails">0</span></p>
+        </div>
+        <script src="buttonHide.js"></script>
+        <script src="coinFlip.js"></script>
 
 </body>
 
