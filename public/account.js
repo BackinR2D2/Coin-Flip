@@ -66,8 +66,6 @@ deleteBtn.addEventListener('click', async (e) => {
                     })
                     if (deleteAcc.status === 200) {
                         window.location.href = '/register'
-                    } else {
-                        swal("Oops!", "Something went wrong! Try again please", "error");
                     }
                 } catch (error) {
                     swal("Oops!", "Something went wrong! Try again please", "error");
